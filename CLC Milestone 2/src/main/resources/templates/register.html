@@ -1,74 +1,86 @@
 <!DOCTYPE html>
-<html xmlns:th="http://www.thymeleaf.org">
+<html xmlns:th="http://www.thymeleaf.org" xmlns:layout="http://www.ultraq.net.nz/themeleaf/layout"
+	layout:decorate="layouts/defaultTemplate">
 <head>
     <title>Registration</title>
     <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@4.6.0/dist/css/bootstrap.min.css">
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@4.6.0/dist/js/bootstrap.min.js"></script>
     <style>
         body {
-    background-color: #FFFFFF; /* White */
-    }
+            background-color: #f4f4f4;
+        }
         .container {
-            width: 500px;
+            width: 400px;
             margin: 0 auto;
+            padding: 20px;
+            background-color: #ffffff;
+            border: 1px solid #ccc;
+            border-radius: 5px;
+            box-shadow: 0 0 10px rgba(0, 0, 0, 0.2);
+        }
+        h1 {
             text-align: center;
         }
         label {
-            width: 150px;
-            float: left;
-            margin-right: 10px;
+            font-weight: bold;
         }
-        input {
-            width: 250px;
+        .error {
+            color: red;
         }
-        @media (max-width: 767px) {
-            .container {
-                width: 100%;
-            }
-            label {
-                width: 100%;
-                float: none;
-            }
+        input[type="text"],
+        input[type="password"] {
+            width: 100%;
+            padding: 10px;
+            margin-bottom: 15px;
+            border: 1px solid #ccc;
+            border-radius: 5px;
+        }
+        input[type="submit"] {
+            background-color: #333;
+            color: #fff;
+            border: none;
+            padding: 10px 20px;
+            border-radius: 5px;
+            cursor: pointer;
+        }
+        input[type="submit"]:hover {
+            background-color: #555;
         }
     </style>
 </head>
 <body>
-<div class="container">
-    <header>
+<div layout:fragment="content">
+    <div class="container">
         <h1>Registration Form</h1>
-    </header>
-    <main>
         <form th:action="@{/doRegister}" th:object="${user}" method="post">
-            <label>First Name:</label>
-            <input type="text" th:field="*{firstName}">
+            <label for="firstName">First Name:</label>
+            <input type="text" id="firstName" th:field="*{firstName}">
             <span th:if="${#fields.hasErrors('firstName')}" th:errors="*{firstName}" class="error"></span>
-            <br>
-            <label>Last Name:</label>
-            <input type="text" th:field="*{lastName}">
+
+            <label for="lastName">Last Name:</label>
+            <input type="text" id="lastName" th:field="*{lastName}">
             <span th:if="${#fields.hasErrors('lastName')}" th:errors="*{lastName}" class="error"></span>
-            <br>
-            <label>Email:</label>
-            <input type="text" th:field="*{email}">
+
+            <label for="email">Email:</label>
+            <input type="text" id="email" th:field="*{email}">
             <span th:if="${#fields.hasErrors('email')}" th:errors="*{email}" class="error"></span>
-            <br>
-            <label>Phone Number:</label>
-            <input type="text" th:field="*{phoneNumber}">
+
+            <label for="phoneNumber">Phone Number:</label>
+            <input type="text" id="phoneNumber" th:field="*{phoneNumber}">
             <span th:if="${#fields.hasErrors('phoneNumber')}" th:errors="*{phoneNumber}" class="error"></span>
-            <br>
-            <label>Username:</label>
-            <input type="text" th:field="*{username}">
+
+            <label for="username">Username:</label>
+            <input type="text" id="username" th:field="*{username}">
             <span th:if="${#fields.hasErrors('username')}" th:errors="*{username}" class="error"></span>
-            <br>
-            <label>Password:</label>
-            <input type="password" th:field="*{password}">
+
+            <label for="password">Password:</label>
+            <input type="password" id="password" th:field="*{password}">
             <span th:if="${#fields.hasErrors('password')}" th:errors="*{password}" class="error"></span>
-            <br>
+
             <input type="submit" value="Register">
         </form>
-    </main>
-    <footer>
-        
-    </footer>
+    </div>
 </div>
 </body>
 </html>
+
