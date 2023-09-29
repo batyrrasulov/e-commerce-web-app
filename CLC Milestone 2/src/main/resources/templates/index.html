@@ -1,0 +1,35 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org" xmlns:layout="http://www.ultraq.net.nz/themeleaf/layout"
+	layout:decorate="layouts/defaultTemplate">
+	<head>
+		<meta charset="UTF-8">
+	</head>
+	<body>
+		<div layout:fragment="content">
+			<div style="position: relative;">
+				<img src="/images/HomeBackground.png" class="images">
+				<h1 class="images-center-text" style="color:white;">Commany Name</h1>
+			</div>
+			
+			<div>
+				<div class="column column-list-theme ">
+					<h2 style="text-align: center;width:100%;" class="">Products</h2>
+						<a class="dropdown-item column-item-theme" th:href="@{/}">Electrionics</a>
+						<a class="dropdown-item column-item-theme " th:href="@{/}">Home Decor</a>
+						<a class="dropdown-item column-item-theme " th:href="@{/}">Tools</a>
+				</div>
+				<div class="column column-list-theme ">
+					<h2 style="text-align: center;width:100%;" class="">Account</h2>
+						<a class="dropdown-item column-item-theme" th:href="@{/}">Shopping Cart</a>
+						<a class="dropdown-item column-item-theme " th:href="@{/}">Shipping Information</a>
+				</div>
+				<div class="column column-list-theme ">
+					<h2 style="text-align: center;width:100%;" class="">Contact Us</h2>
+						<a class="dropdown-item column-item-theme" th:href="@{/}">FAQ</a>
+						<a class="dropdown-item column-item-theme " th:href="@{/}">Blog</a>
+						<a class="dropdown-item column-item-theme " th:href="@{/}">Social Media</a>
+				</div>
+			</div>
+		</div>
+	</body>
+</html>

@@ -1,0 +1,42 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org" xmlns:layout="http://www.ultraq.net.nz/themeleaf/layout">
+	
+	<div th:fragment="header" style="position:sticky;top:0px;z-index: 99999;background: white;" >
+		<div class="header-theme">
+			<h1>Ecommerce Milestone</h1>
+		</div>
+			<nav class="navbar navbar-expand-lg navbar-theme">
+				<div class="container-fluid">
+					<a href="" class="navbar-brand navbar-item-theme">Home</a>
+					 <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
+					      <span class="navbar-toggler-icon navbar-toggle-image"></span>
+					 </button>
+				
+					<div class="collapse navbar-collapse" id="navbarSupportedContent">
+				      <ul class="navbar-nav me-auto mb-2 mb-lg-0">
+				        <li class="nav-item dropdown">
+				          <a class="nav-link dropdown-toggle navbar-item-theme" id="navbarDropdown" role="button" data-bs-toggle="dropdown" aria-expanded="false">Products</a>
+				          <ul class="dropdown-menu navbar-theme" aria-labelledby="navbarDropdown">
+				            <li><a class="dropdown-item navbar-item-theme" th:href="@{/}">Electrionics</a></li>
+				            <li><a class="dropdown-item navbar-item-theme" th:href="@{/}">Home Decor</a></li>
+				            <li><a class="dropdown-item navbar-item-theme" th:href="@{/}">Tools</a></li>
+				          </ul>
+				        </li>
+				        <li>
+							<a class="nav-link navbar-item-theme" th:href="@{/}">About us</a>
+						</li>
+				      </ul>
+				      <ul class="navbar-nav">
+						  <li class="nav-item d-flex justify-content-end">
+							<a class="nav-link navbar-item-theme" th:href="@{register}">Login / Sign Up</a>
+						</li>
+					  </ul>
+					</div>
+				</div>
+			</nav>
+	</div>
+	
+	<div th:fragment="footer" class="navbar-theme"style="position: fixed; bottom: 0; width: 100%; border:none;">
+		<h5 style="text-align: center; font-size: 15px;padding:3px; ">Copyright 2023 Grand Canyon University</h5>
+	</div>
+</html>
