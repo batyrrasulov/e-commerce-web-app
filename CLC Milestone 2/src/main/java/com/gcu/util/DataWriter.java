@@ -7,7 +7,7 @@ import com.gcu.model.UserModel;
 
 @Component
 public class DataWriter {
-    private static final String FILE_PATH = "/Applications/SpringToolSuite4.app/Contents/MacOS/workspaceCST-339/SampleMilestone/src/main/java/com/gcu/util/Text File.txt";
+    private static final String FILE_PATH = "/Applications/SpringToolSuite4.app/Contents/MacOS/workspaceCST-339/CLC Milestone 2/src/main/java/com/gcu/util/Text File.txt";
     public void writeData(UserModel userModel) {
         try (FileWriter writer = new FileWriter(FILE_PATH, true)) {
             String formattedData = String.format(
