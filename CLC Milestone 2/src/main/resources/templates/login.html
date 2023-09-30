@@ -1,8 +1,6 @@
 <html xmlns:th="http://www.thymeleaf.org" xmlns:layout="http://www.ultraq.net.nz/thymeleaf/layout" layout:decorate="layouts/defaultTemplate">
 	<head>
     <title>Registration</title>
-    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@4.6.0/dist/css/bootstrap.min.css">
-    <script src="https://cdn.jsdelivr.net/npm/bootstrap@4.6.0/dist/js/bootstrap.min.js"></script>
     <style>
         body {
             background-color: #f4f4f4;
@@ -53,22 +51,24 @@
     <table>
 		<tr>
 			<td>User Name:</td><td><input type="text" th:field="*{username}" ></td><td><h5 style="color:red" th:if="${#fields.hasErrors('username')}" th:errors="*{username}">User Name Error</h5></td>
-			</tr>
-			<tr>
-				<td>Password:</td><td><input type="text" th:field="*{password}" ></td><td><h5 style="color:red" th:if="${#fields.hasErrors('password')}" th:errors="*{password}">Password Error</h5></td>
-				</tr>
-				<tr>
-					<td colspan="3"><input type="submit" value="Submit" /></td>
-					</tr>
-					</table>
-					<div th:if="${#fields.hasErrors('*')}">List of Errors</div>
-					<div th:each="err : ${#fields.errors('*')}">
-						<span style="color:red" th:text="${err}" class="fieldError"></span>
-					</div>
-					</form>
-					<p>Not a user? <a th:href="@{/register}">Register here</a></p>
-					</div>
-					</body>
-					</html>
+		</tr>
+		<tr>
+			<td>Password:</td><td><input type="text" th:field="*{password}" ></td><td><h5 style="color:red" th:if="${#fields.hasErrors('password')}" th:errors="*{password}">Password Error</h5></td>
+		</tr>
+		<tr>
+			<td colspan="3" style="text-align:center;"><input type="submit" value="Submit" /></td>
+		</tr>
+	</table>
+					
+	<div th:if="${#fields.hasErrors('*')}">List of Errors</div>
+	<div th:each="err : ${#fields.errors('*')}">
+	<span style="color:red" th:text="${err}" class="fieldError"></span>
+	</div>
+	</form>
+	
+	<p>Not a user? <a th:href="@{/register}">Register here</a></p>
+	</div>
+</body>
+</html>
 					
 	

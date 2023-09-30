@@ -8,10 +8,10 @@ import org.springframework.validation.BindingResult;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RequestMapping;
+import org.springframework.web.servlet.mvc.support.RedirectAttributes;
 @Controller
-@RequestMapping("/login")
 public class LoginController {
-	@GetMapping("/")
+	@GetMapping("/login")
 	public String display(Model model) {
 		// create a new instance of a LoginModel
 		LoginModel loginModel = new LoginModel();
@@ -22,7 +22,7 @@ public class LoginController {
 		return "login";
 	}
 	@PostMapping("/doLogin")
-	public String doLogin(@Valid LoginModel loginModel, BindingResult bindingResult, Model model) {
+	public String doLogin(@Valid LoginModel loginModel, BindingResult bindingResult, Model model, RedirectAttributes redirectAttributes) {
 		// check for the validation errors
 		if (bindingResult.hasErrors()) {
 			model.addAttribute("title", "Login Form");
@@ -30,6 +30,7 @@ public class LoginController {
 		}
 		// print the form values out
 		System.out.println(String.format("Form with Username of %s and Password of %s", loginModel.getUsername(), loginModel.getPassword()) );
-		return "login";
+
+		return "redirect:/";
 	}
 }

@@ -8,17 +8,13 @@
 		color: white;
 	}
 .navbar-toggle-image {
-	background-image:url("/images/ThreeBar.png");
+	background-image:url("/images/ThreeBar.png") !important;
 }
 
 .header-theme {
 	color:#602060;
 }
-.images {
-	width:100vw;
-	height: 700px;
-	object-fit:cover;
-} 
+
 	.images-center-text{
 		position: absolute;
 		top:45%;
@@ -51,6 +47,13 @@
 		display:inline-block;
 		vertical-align: top;
 	}
+	.images {
+		width:100%;
+		height: 700px;
+		object-fit:cover;
+		overflow:hidden;
+		
+	} 
 }
 
 @media (max-width: 599px){
@@ -58,5 +61,12 @@
 		width:90vw;
 		margin:5px;
 		display:inline-block;
-	}	
+	}
+	.images {
+		width:100%;
+		height: 400px;
+		object-fit:cover;
+		overflow:hidden;
+		
+	} 	
 }
