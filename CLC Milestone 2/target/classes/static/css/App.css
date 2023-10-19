@@ -1,8 +1,8 @@
 @charset "UTF-8";
 :root {
-	--primaryColor: black;
-	--secondaryColor: teal;
-	--borderColor: blue;
+	--primaryColor: #602060;
+	--secondaryColor: white;
+	--borderColor: rebeccapurple;
 }
 
 label {

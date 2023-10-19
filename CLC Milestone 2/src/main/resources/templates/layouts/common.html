@@ -26,9 +26,14 @@
 							<a class="nav-link navbar-item-theme" th:href="@{/}">About us</a>
 						</li>
 				      </ul>
-				      <ul class="navbar-nav">
+				      <ul class="navbar-nav" th:unless="${@userStatus.isLogin()}">
 						  <li class="nav-item justify-content-end">
 							<a class="nav-link navbar-item-theme" th:href="@{/login}">Login / Sign Up</a>
+						</li>
+					  </ul>
+					  <ul class="navbar-nav" th:if="${@userStatus.isLogin()}">
+						  <li class="nav-item justify-content-end">
+							<a class="nav-link navbar-item-theme" th:href="@{/products/creation}" th:if="${@userStatus.isAdmin()}">Create Product</a>
 						</li>
 					  </ul>
 					</div>

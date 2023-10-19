@@ -1,6 +1,7 @@
 package com.gcu.controller;
 
 import com.gcu.model.LoginModel;
+import com.gcu.model.UserStatus;
 import com.gcu.service.LoginService;
 import jakarta.validation.Valid;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -20,6 +21,9 @@ public class LoginController {
 	    public LoginController(LoginService loginService) {
 	        this.loginService = loginService;
 	    }
+	    
+	    @Autowired
+	    private UserStatus user;
 
 	    @GetMapping("/login")
 	    public String display(Model model) {
@@ -37,6 +41,9 @@ public class LoginController {
 	        // authenticate the user using the injected LoginService
 	        if (loginService.authenticateUser(loginModel.getUsername(), loginModel.getPassword())) {
 	        	// home page redirection
+	        	user.setName(loginModel.getUsername());
+	        	user.setAdmin(true);
+	        	user.setLogin(true);
 	            return "redirect:/"; 
 	        } else {
 	            model.addAttribute("loginError", "Invalid username or password");
