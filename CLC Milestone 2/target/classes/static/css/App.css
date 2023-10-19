@@ -1,18 +1,55 @@
 @charset "UTF-8";
+:root {
+	--primaryColor: black;
+	--secondaryColor: teal;
+	--borderColor: blue;
+}
 
+label {
+	font-weight: bold;
+}
+
+body {
+	background-color: #f4f4f4;
+}
+
+input[type="text"],
+input[type="password"],
+input[type="number"] {
+	width: 100%;
+	padding: 10px;
+	margin-bottom: 15px;
+	border: 1px solid #ccc;
+	border-radius: 5px;
+}
+
+input[type="submit"] {
+	background-color: var(--primaryColor);
+	color: var(--secondaryColor);
+	border: none;
+	padding: 10px 20px;
+	border-radius: 5px;
+	cursor: pointer;
+}
+input[type="submit"]:hover {
+	background-color: var(--borderColor);
+	color:lightgrey;
+}
+
+        
 .navbar-theme {
-	background-color: #602060;
-	color:white;
+	background-color: var(--primaryColor);;
+	color:var(--secondaryColor);
 }
 	.navbar-item-theme {
-		color: white;
+		color: var(--secondaryColor);
 	}
 .navbar-toggle-image {
 	background-image:url("/images/ThreeBar.png") !important;
 }
 
 .header-theme {
-	color:#602060;
+	color:var(--primaryColor);
 }
 
 	.images-center-text{
@@ -23,22 +60,39 @@
 	}
 
 .column-list-theme {
-	background-color: #602060;
-	color:white;
-	border: 3px solid rebeccapurple;
+	background-color: var(--primaryColor);
+	color:var(--secondaryColor);
+	border: 3px solid var(--borderColor);
 	margin:none;
 }
 
 	.column-item-theme {
-		border:1px solid rebeccapurple;
-		color:white;
+		border:1px solid var(--borderColor);
+		color:var(--secondaryColor);
 		padding-top:10px;
 		padding-bottom: 10px;
 	}
 		.column-item-theme:hover{
-			background-color: rebeccapurple;
+			background-color: var(--borderColor);
 			color:lightgrey;
 		}
+
+.container {
+    width: 400px;
+    margin: 20px auto;
+    padding: 20px;
+    background-color: #ffffff;
+    border: 1px solid lightgrey;
+    border-radius: 5px;
+	box-shadow: 0 0 10px rgba(0, 0, 0, 0.2);
+}
+
+.error {
+	color: red;
+}
+.center-text {
+	text-align: center;
+}
 	
 @media(min-width:600px){
 	.column{

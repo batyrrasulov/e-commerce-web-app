@@ -1,0 +1,33 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org" xmlns:layout="http://www.ultraq.net.nz/themeleaf/layout"
+	layout:decorate="layouts/defaultTemplate">
+	<head>
+		<meta charset="UTF-8">
+	</head>
+	<body>
+		<div layout:fragment="content">
+			<div class="container">
+        		<h1>Product Creation Form</h1>
+        		<form th:action="@{doCreation}" th:object="${productModel}" method="post">
+	            	<label for="name">Name:</label>
+    	        	<input type="text" id="name" th:field="*{name}">
+        	    	<span th:if="${#fields.hasErrors('name')}" th:errors="*{name}" class="error"></span>
+
+	        	    <label for="quantity">Quantity:</label>
+    	        	<input type="number" id="quantity" th:field="*{quantity}">
+        	    	<span th:if="${#fields.hasErrors('quantity')}" th:errors="*{quantity}" class="error"></span>
+
+	            	<label for="price">Price:</label>
+   		    	    <input type="text" id="price" th:field="*{price}">
+    		        <span th:if="${#fields.hasErrors('price')}" th:errors="*{price}" class="error"></span>
+
+	        	    <label for="description">Description:</label>
+    	        	<input type="text" id="description" th:field="*{description}">
+        	    	<span th:if="${#fields.hasErrors('description')}" th:errors="*{description}" class="error"></span>
+        	    	
+            		<input type="submit" value="Create Product">
+        		</form>
+    		</div>
+		</div>
+	</body>
+</html>

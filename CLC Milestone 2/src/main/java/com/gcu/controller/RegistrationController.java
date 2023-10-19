@@ -21,6 +21,7 @@ public class RegistrationController {
     }
     @GetMapping("/register")
     public String display(Model model) {
+    	model.addAttribute("title","Register");
         if (!model.containsAttribute("user")) {
             model.addAttribute("user", new UserModel());
         }
