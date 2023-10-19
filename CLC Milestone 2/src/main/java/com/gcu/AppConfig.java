@@ -9,12 +9,12 @@ import com.gcu.service.RegistrationService;
 @Configuration
 public class AppConfig {
 	// define bean methods
-    @Bean(name="loginService")
-    public LoginService loginService() {
+    @Bean(name="businessLoginService")
+    public LoginService businessLoginService() {
     	return new LoginService();
     }
-    @Bean(name="registrationService")
-    public RegistrationService registrationService() {
+    @Bean(name="businessRegistrationService")
+    public RegistrationService businessRegistrationService() {
     	return new RegistrationService();
     }
 }
