@@ -1,17 +1,21 @@
 package com.gcu.service;
 
+import com.gcu.data.entity.UserEntity;
+import com.gcu.data.repository.UserRepository;
+import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
-import com.gcu.model.UserModel;
-
-//define the service class for user registration
 @Service
 public class RegistrationService {
-	public void registerUser(UserModel userModel) {
-		/**
-		 * method prints a message indicating the registration of a user
-         * next milestones => we would typically persist the user's information in a database
-		 */
-		System.out.println("Registered User: " + userModel.getUsername());
-	}
+
+    private final UserRepository userRepository;
+
+    @Autowired
+    public RegistrationService(UserRepository userRepository) {
+        this.userRepository = userRepository;
+    }
+
+    public void registerUser(UserEntity userEntity) {
+        userRepository.save(userEntity);
+    }
 }

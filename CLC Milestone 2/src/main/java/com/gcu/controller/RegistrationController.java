@@ -7,18 +7,14 @@ import org.springframework.validation.BindingResult;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.ModelAttribute;
 import org.springframework.web.bind.annotation.PostMapping;
-import org.springframework.web.servlet.mvc.support.RedirectAttributes;
-
+import com.gcu.data.entity.UserEntity;
 import com.gcu.model.UserModel;
 import com.gcu.service.RegistrationService;
-import com.gcu.util.DataWriter;
-
 import jakarta.validation.Valid;
 
 @Controller
 public class RegistrationController {
 	private final RegistrationService registrationService;
-	
     // DI => inject the RegistrationService into the controller
     @Autowired
     public RegistrationController(RegistrationService registrationService) {
@@ -37,9 +33,21 @@ public class RegistrationController {
         if (bindingResult.hasErrors()) {
             return "register";
         }
-        // call the RegistrationService to register the user with the provided UserModel
-        registrationService.registerUser(userModel);
-        // home page redirection
+
+        // convert UserModel to UserEntity
+        UserEntity userEntity = new UserEntity();
+        userEntity.setFirstName(userModel.getFirstName());
+        userEntity.setLastName(userModel.getLastName());
+        userEntity.setEmail(userModel.getEmail());
+        userEntity.setPhoneNumber(userModel.getPhoneNumber());
+        userEntity.setUsername(userModel.getUsername());
+        userEntity.setPassword(userModel.getPassword());
+
+        // call the RegistrationService to register the user with the converted UserEntity
+        registrationService.registerUser(userEntity);
+
+        // Home page redirection
         return "redirect:/";
     }
+
 }

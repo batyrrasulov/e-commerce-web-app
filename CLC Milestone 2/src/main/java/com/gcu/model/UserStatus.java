@@ -1,7 +1,7 @@
 package com.gcu.model;
 
 public class UserStatus {
-	
+
 	private boolean login;
 	private boolean admin;
 	private String name;
