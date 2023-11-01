@@ -4,7 +4,7 @@ import jakarta.persistence.*;
 import jakarta.validation.constraints.*;
 
 @Entity
-public class Product {
+public class ProductModel {
 	@Id
     @GeneratedValue(strategy = GenerationType.AUTO)
 	private long id;
@@ -24,7 +24,25 @@ public class Product {
 	@NotNull(message="Price is a required field")
 	@PositiveOrZero(message = "The value must be a number and greater than or equal to 0")
 	private float price;
+	
+	@NotNull(message="Category is a required field")
+	@Size(min=1, max=32, message="Category must be between 1 and 32 characters")
+	private String category;
 
+	public ProductModel()
+	{
+		
+	}
+	public ProductModel(long id, String name, int quantity, String description, float price, String category)
+	{
+		this.id = id;
+		this.name = name;
+		this.quantity = quantity;
+		this.description = description;
+		this.price = price;
+		this.category = category;
+	}
+	
 	public long getId() {
 		return id;
 	}
@@ -63,6 +81,14 @@ public class Product {
 
 	public void setPrice(float price) {
 		this.price = price;
+	}
+	
+	public String getCategory() {
+		return category;
+	}
+	
+	public void setCategory(String category) {
+		this.category = category;
 	}
 	
 	

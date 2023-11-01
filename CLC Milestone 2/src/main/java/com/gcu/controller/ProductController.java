@@ -9,6 +9,7 @@ import org.springframework.web.bind.annotation.*;
 import com.fasterxml.jackson.core.JsonProcessingException;
 import com.fasterxml.jackson.databind.ObjectMapper;
 import com.gcu.model.*;
+import com.gcu.service.ProductService;
 
 import jakarta.validation.Valid;
 
@@ -16,35 +17,28 @@ import jakarta.validation.Valid;
 @RequestMapping("/products")
 public class ProductController {
 	
+	@Autowired
+	private ProductService service;
+	
 	@GetMapping("/creation")
 	public String creation(Model model)
 	{
 		model.addAttribute("title", "Product Creation");
 		
 		if (!model.containsAttribute("productModel")) {
-            model.addAttribute("productModel", new Product());
+            model.addAttribute("productModel", new ProductModel());
         }
 		
 		return "productCreation";
 	}
 	
 	@PostMapping("/doCreation")
-	public String doCreation(@ModelAttribute("productModel") @Valid Product productModel, BindingResult bindingResult, Model model) 
+	public String doCreation(@ModelAttribute("productModel") @Valid ProductModel productModel, BindingResult bindingResult, Model model) 
 	{
 		if (bindingResult.hasErrors()) {
             return "productCreation";
         }
-		ObjectMapper mapper = new ObjectMapper();
-
-		String json = "";
-		try {
-			json = mapper.writeValueAsString(productModel);
-		} catch (JsonProcessingException e) {
-			// TODO Auto-generated catch block
-			e.printStackTrace();
-		}
-		
-		System.out.println("\n" + json +"\n");
+		service.create(productModel);
 		
 		return "redirect:/";
 	}

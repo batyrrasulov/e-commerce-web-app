@@ -5,8 +5,7 @@ import org.springframework.context.annotation.Configuration;
 import org.springframework.web.context.annotation.SessionScope;
 
 import com.gcu.model.UserStatus;
-import com.gcu.service.LoginService;
-import com.gcu.service.RegistrationService;
+import com.gcu.service.*;
 
 // define a configuration class
 @Configuration
