@@ -40,9 +40,6 @@ public class LoginController {
 	        // authenticate the user using the injected LoginService
 	        if (loginService.authenticateUser(loginModel.getUsername(), loginModel.getPassword())) {
 	        	// home page redirection
-	        	user.setName(loginModel.getUsername());
-	        	user.setAdmin(true);
-	        	user.setLogin(true);
 	            return "redirect:/"; 
 	        } else {
 	            model.addAttribute("loginError", "Invalid username or password");

@@ -9,7 +9,7 @@ public class UserStatus {
 	public UserStatus() 
 	{
 		login = false;
-		admin = true;
+		admin = false;
 		name = "";
 	}
 

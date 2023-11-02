@@ -27,18 +27,22 @@ public class UserEntity {
 
     @Column("Password")
     private String password;
+    
+    @Column("Admin")
+    private boolean admin;
 
     public UserEntity() {
         
     }
     
-    public UserEntity(String firstName, String lastName, String email, String phoneNumber, String username, String password) {
+    public UserEntity(String firstName, String lastName, String email, String phoneNumber, String username, String password, boolean admin) {
         this.firstName = firstName;
         this.lastName = lastName;
         this.email = email;
         this.phoneNumber = phoneNumber;
         this.username = username;
         this.password = password;
+        this.admin = admin;
     }
 
     public Long getId() {
@@ -96,4 +100,15 @@ public class UserEntity {
     public void setPassword(String password) {
         this.password = password;
     }
+    
+    public boolean isAdmin()
+    {
+    	return admin;
+    }
+    
+    public void setAdmin(boolean admin)
+    {
+    	this.admin = admin;
+    }
+    
 }
