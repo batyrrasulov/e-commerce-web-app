@@ -9,9 +9,9 @@
 		<relativePath/> <!-- lookup parent from repository -->
 	</parent>
 	<groupId>com.gcu</groupId>
-	<artifactId>SampleMilestone</artifactId>
-	<version>0.0.1-SNAPSHOT</version>
-	<name>SampleMilestone</name>
+	<artifactId>Milestone</artifactId>
+	<version>0.0.4</version>
+	<name>Milestone</name>
 	<description>Demo project for Spring Boot</description>
 	<properties>
 		<java.version>17</java.version>
