@@ -6,6 +6,7 @@ import org.springframework.data.relational.core.mapping.*;
 @Table("Products")
 public class ProductEntity {
 	@Id
+	@Column(value = "ProductID")
 	private long productID;
 	
 	@Column("Name")
@@ -23,6 +24,9 @@ public class ProductEntity {
 	@Column("Category")
 	private String category;
 	
+	public ProductEntity() {
+        
+    }
 	public ProductEntity(long productID, String name, int quantity, float price, String description,String category)
 	{
 		this.productID = productID;

@@ -2,6 +2,8 @@ package com.gcu.data;
 
 import java.util.*;
 import javax.sql.DataSource;
+import org.springframework.jdbc.core.BeanPropertyRowMapper;
+import org.springframework.jdbc.core.JdbcTemplate;
 import org.springframework.stereotype.Service;
 import com.gcu.data.entity.ProductEntity;
 import com.gcu.data.repository.ProductRepository;
@@ -11,12 +13,12 @@ public class ProductDataService implements DataAccessInterface<ProductEntity> {
 
 	
 	private ProductRepository productRepository;
-	
-	public ProductDataService (ProductRepository productRepository, DataSource dataSource)
-	{
-		this.productRepository = productRepository;
-	}
-	
+    private final JdbcTemplate jdbcTemplate;
+
+    public ProductDataService(ProductRepository productRepository, DataSource dataSource) {
+        this.productRepository = productRepository;
+        this.jdbcTemplate = new JdbcTemplate(dataSource);
+    }
 	
 	public List<ProductEntity> findAll() {
 		List<ProductEntity> products = new ArrayList<ProductEntity>();
@@ -75,6 +77,20 @@ public class ProductDataService implements DataAccessInterface<ProductEntity> {
 			return false;
 		productRepository.delete(product);
 		return true;
+	}
+	@Override
+	public List<ProductEntity> getProductsByCategory(String category) {
+	    try {
+	        System.out.println("Fetching products for category: " + category);
+	        String query = "SELECT * FROM products WHERE category = ?";
+	        List<ProductEntity> products = jdbcTemplate.query(query, new BeanPropertyRowMapper<>(ProductEntity.class), category);
+	        System.out.println("Fetched products: " + products);
+	        return products;
+	    } catch (Exception e) {
+	        System.err.println("Error fetching products by category: " + e.getMessage());
+	        e.printStackTrace();
+	        return Collections.emptyList();
+	    }
 	}
 
 }

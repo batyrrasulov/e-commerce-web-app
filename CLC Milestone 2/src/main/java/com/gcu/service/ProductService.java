@@ -46,4 +46,15 @@ public class ProductService {
 		ProductEntity entity = new ProductEntity(product.getId(),product.getName(),product.getQuantity(),product.getPrice(),product.getDescription(),product.getCategory());
 		return service.delete(entity);
 	}
+	public List<ProductModel> getProductsByCategory(String category) {
+       
+        List<ProductEntity> entities = service.getProductsByCategory(category);
+
+        List<ProductModel> products = new ArrayList<>();
+        for (ProductEntity entity : entities) {
+            products.add(new ProductModel(entity.getProductID(), entity.getName(), entity.getQuantity(),
+                    entity.getDescription(), entity.getPrice(), entity.getCategory()));
+        }
+        return products;
+    }
 }

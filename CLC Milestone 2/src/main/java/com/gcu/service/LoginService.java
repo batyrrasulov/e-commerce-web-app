@@ -3,7 +3,6 @@ package com.gcu.service;
 import com.gcu.data.entity.UserEntity;
 import com.gcu.data.repository.UserRepository;
 import com.gcu.model.UserStatus;
-
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 

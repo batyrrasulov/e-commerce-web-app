@@ -1,0 +1,35 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org" xmlns:layout="http://www.ultraq.net.nz/themeleaf/layout"
+    layout:decorate="layouts/defaultTemplate">
+<head>
+    <title>Product List</title>
+    <link rel="stylesheet" type="text/css" th:href="@{/css/product.css}" />
+</head>
+<body>
+    <div layout:fragment="content" class="container">
+        <h1 class="header-theme">Product List</h1>
+        <div class="list-container">
+            <table class="table-theme">
+                <thead>
+                    <tr>
+                        <th>ID</th>
+                        <th>Name</th>
+                        <th>Price</th>
+                        <th>Action</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    <tr th:each="product : ${products}">
+                        <td th:text="${product.id}">Product ID</td>
+                        <td th:text="${product.name}">Product Name</td>
+                        <td th:text="${product.price}">Product Price</td>
+                        <td>
+                            <a class="action-link" th:href="@{'/products/' + ${product.id}}">View Details</a>
+                        </td>
+                    </tr>
+                </tbody>
+            </table>
+        </div>
+    </div>
+</body>
+</html>

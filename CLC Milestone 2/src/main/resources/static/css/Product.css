@@ -1,0 +1,45 @@
+/* product.css */
+
+body {
+    background-color: #f4f4f4;
+    font-family: 'Arial', sans-serif;
+}
+
+.container {
+    width: 80%;
+    margin: 20px auto;
+    padding: 20px;
+    background-color: #ffffff;
+    border: 1px solid lightgrey;
+    border-radius: 5px;
+    box-shadow: 0 0 10px rgba(0, 0, 0, 0.2);
+}
+
+.table-theme {
+    width: 100%;
+    border-collapse: collapse;
+    margin-top: 20px;
+}
+
+.table-theme th, .table-theme td {
+    border: 1px solid lightgrey;
+    padding: 10px;
+    text-align: left;
+}
+
+.table-theme th {
+    background-color: #602060;
+    color: white;
+}
+
+.action-link {
+    color: #602060;
+    text-decoration: none;
+    font-weight: bold;
+}
+
+.action-link:hover {
+    color: #902080;
+}
+
+/* Add more styles based on your preferences */

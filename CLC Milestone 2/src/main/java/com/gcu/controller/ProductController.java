@@ -1,5 +1,6 @@
 package com.gcu.controller;
 
+import java.util.List;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
@@ -37,5 +38,25 @@ public class ProductController {
 		service.create(productModel);
 		
 		return "redirect:/";
+	}
+	@GetMapping("/list")
+	public String productList(@RequestParam(name = "category", required = false) String category, Model model) {
+	    List<ProductModel> products;
+
+	    if (category != null && !category.isEmpty()) {
+	        products = service.getProductsByCategory(category);
+	    } else {
+	        products = service.findAll();
+	    }
+
+	    model.addAttribute("products", products);
+	    return "product/list";
+	}
+
+    @GetMapping("/{productId}")
+    public String productDetails(@PathVariable long productId, Model model) {
+        ProductModel product = service.findbyId(productId);
+        model.addAttribute("product", product);
+        return "product/details";
 	}
 }
