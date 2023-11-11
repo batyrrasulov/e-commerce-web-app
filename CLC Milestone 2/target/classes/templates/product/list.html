@@ -25,6 +25,9 @@
                         <td th:text="${product.price}">Product Price</td>
                         <td>
                             <a class="action-link" th:href="@{'/products/' + ${product.id}}">View Details</a>
+                            <a class="action-link" th:href="@{'/products/' + ${product.id}}">Add to Cart</a>
+                            <a class="action-link" th:if="${@userStatus.isAdmin()}" th:href="@{'/products/edit/' + ${product.id}}">Edit</a>
+                            <a class="action-link" th:if="${@userStatus.isAdmin()}" th:href="@{'/products/delete/' + ${product.id}}">Delete</a>
                         </td>
                     </tr>
                 </tbody>

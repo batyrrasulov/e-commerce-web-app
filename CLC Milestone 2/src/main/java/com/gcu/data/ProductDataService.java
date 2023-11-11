@@ -46,10 +46,12 @@ public class ProductDataService implements DataAccessInterface<ProductEntity> {
 
 	
 	public boolean update(ProductEntity product) {
-		ProductEntity productDB = productRepository.findById(product.getProductID()).get();
+		Optional<ProductEntity> optionalProductDB = productRepository.findById(product.getProductID());
 		
-		if(productDB == null)
+		if(optionalProductDB.isEmpty())
 			return false;
+		
+		ProductEntity productDB = optionalProductDB.get();
 		
 		if (product.getName() != null && product.getName() != "") {
             productDB.setName(product.getName());

@@ -1,4 +1,9 @@
 /* product.css */
+:root {
+	--primaryColor: #602060;
+	--secondaryColor: white;
+	--borderColor: rebeccapurple;
+}
 
 body {
     background-color: #f4f4f4;
@@ -6,36 +11,40 @@ body {
 }
 
 .container {
-    width: 80%;
+    max-width: 80%;
+    width:fit-content;
     margin: 20px auto;
-    padding: 20px;
+    padding: 10px;
     background-color: #ffffff;
-    border: 1px solid lightgrey;
+    border: 1px solid var(--borderColor);
     border-radius: 5px;
     box-shadow: 0 0 10px rgba(0, 0, 0, 0.2);
 }
-
 .table-theme {
-    width: 100%;
+    width: auto;
     border-collapse: collapse;
     margin-top: 20px;
 }
 
 .table-theme th, .table-theme td {
-    border: 1px solid lightgrey;
+    border: 1px solid var(--borderColor);
     padding: 10px;
     text-align: left;
 }
 
 .table-theme th {
-    background-color: #602060;
+    background-color: var(--primaryColor);
     color: white;
 }
 
+
 .action-link {
-    color: #602060;
+    color: var(--primaryColor);
     text-decoration: none;
     font-weight: bold;
+    display:block;
+    padding: 5px;
+    padding-right:0px;
 }
 
 .action-link:hover {

@@ -59,4 +59,34 @@ public class ProductController {
         model.addAttribute("product", product);
         return "product/details";
 	}
+    
+    @GetMapping("/edit/{productId}")
+    public String productEdit(@PathVariable long productId, Model model) {
+        ProductModel product = service.findbyId(productId);
+        model.addAttribute("productModel", product);
+        return "product/edit";
+	}
+    
+    @PostMapping("/doEdit")
+    public String doProductEdit(@ModelAttribute("productModel") @Valid ProductModel productModel, BindingResult bindingResult, Model model) {
+    	if (bindingResult.hasErrors()) {
+            return "product/edit";
+        }
+    	service.update(productModel);
+    	return "redirect:/products/list?category="+productModel.getCategory();
+	}
+    
+    @GetMapping("/delete/{productId}")
+    public String productDelete(@PathVariable long productId, Model model) {
+        ProductModel product = service.findbyId(productId);
+        model.addAttribute("productModel", product);
+        return "product/delete";
+	}
+    
+    @PostMapping("/doDelete")
+    public String doProductDelete(@ModelAttribute("productModel") @Valid ProductModel productModel, BindingResult bindingResult, Model model) {
+    	String category = productModel.getCategory();
+    	service.delete(productModel);
+    	return "redirect:/products/list?category=" + category;
+	}
 }

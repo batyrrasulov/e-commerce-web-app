@@ -93,6 +93,21 @@ input[type="submit"]:hover {
 .center-text {
 	text-align: center;
 }
+
+.selector {
+	width: 100%;
+	padding: 10px;
+	margin-bottom: 15px;
+	border: 1px solid #ccc;
+	border-radius: 5px;
+}
+.selector:hover {
+	background-color: lightgrey;
+}
+
+.selector-option:hover {
+	background-color:lightgrey;
+}
 	
 @media(min-width:600px){
 	.column{

@@ -25,9 +25,16 @@
     	        	<input type="text" id="description" th:field="*{description}">
         	    	<span th:if="${#fields.hasErrors('description')}" th:errors="*{description}" class="error"></span>
         	    	
-        	    	<label for="category">Category:</label>
+        	    	<!-- <label for="category">Category:</label>
     	        	<input type="text" id="category" th:field="*{category}">
-        	    	<span th:if="${#fields.hasErrors('category')}" th:errors="*{category}" class="error"></span>
+        	    	<span th:if="${#fields.hasErrors('category')}" th:errors="*{category}" class="error"></span>  -->
+        	    	
+        	    	<label for="category">Category:</label>
+        	    	<select class="form-select selector" th:field="*{category}">
+        	    		<option class="selector-option" value="electronics">Electronics</option>
+        	    		<option class="selector-option" value="home-decor">Home Decor</option>
+        	    		<option class="selector-option" value="tool">Tool</option>
+        	    	</select>
         	    	
             		<input type="submit" value="Create Product">
         		</form>
