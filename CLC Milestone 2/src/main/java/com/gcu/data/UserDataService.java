@@ -55,10 +55,14 @@ public class UserDataService implements DataAccessInterface<UserEntity> {
         userRepository.delete(user);
         return true;
     }
-
-	@Override
+	
+    @Override
 	public List<UserEntity> getProductsByCategory(String category) {
 		// TODO Auto-generated method stub
 		return null;
 	}
+	
+    public UserEntity findByUsername(String username) {
+        return userRepository.findByUsername(username);
+    }
 }

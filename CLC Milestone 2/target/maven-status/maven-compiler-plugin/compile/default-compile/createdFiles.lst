@@ -9,6 +9,7 @@ com\gcu\controller\ProductController.class
 com\gcu\AppConfig.class
 com\gcu\controller\RegistrationController.class
 com\gcu\data\repository\ProductRepository.class
+com\gcu\SecurityConfig.class
 com\gcu\model\LoginModel.class
 com\gcu\service\ProductService.class
 com\gcu\service\LoginService.class
