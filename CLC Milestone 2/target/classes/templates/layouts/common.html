@@ -1,5 +1,6 @@
 <!DOCTYPE html>
-<html xmlns:th="http://www.thymeleaf.org" xmlns:layout="http://www.ultraq.net.nz/themeleaf/layout">
+<html xmlns:th="http://www.thymeleaf.org" xmlns:layout="http://www.ultraq.net.nz/themeleaf/layout"
+		xmlns:sec="http://www.thymeleaf.org/extras/spring-security">
 	
 	<div th:fragment="header" style="position:sticky;top:0px;z-index: 99999;background: white;" >
 		<div class="header-theme">
@@ -26,14 +27,17 @@
 							<a class="nav-link navbar-item-theme" th:href="@{/}">About us</a>
 						</li>
 				      </ul>
-				      <ul class="navbar-nav" th:unless="${@userStatus.isLogin()}">
+				      <ul class="navbar-nav" sec:authorize="isAnonymous()">
 						  <li class="nav-item justify-content-end">
 							<a class="nav-link navbar-item-theme" th:href="@{/login}">Login / Sign Up</a>
 						</li>
 					  </ul>
-					  <ul class="navbar-nav" th:if="${@userStatus.isLogin()}">
-						  <li class="nav-item justify-content-end">
-							<a class="nav-link navbar-item-theme" th:href="@{/products/creation}" th:if="${@userStatus.isAdmin()}">Create Product</a>
+					  <ul class="navbar-nav" sec:authorize="isAuthenticated()">
+						<li class="nav-item justify-content-end">
+							<a class="nav-link navbar-item-theme" th:href="@{/products/creation}" sec:authorize="hasRole('ADMIN')">Create Product</a>
+						</li>
+						<li class="nav-item justify-content-end">
+							<a class="nav-link navbar-item-theme" th:href="@{/logout}">Log Out</a>
 						</li>
 					  </ul>
 					</div>

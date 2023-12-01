@@ -1,6 +1,6 @@
 <!DOCTYPE html>
 <html xmlns:th="http://www.thymeleaf.org" xmlns:layout="http://www.ultraq.net.nz/themeleaf/layout"
-    layout:decorate="layouts/defaultTemplate">
+    layout:decorate="layouts/defaultTemplate" xmlns:sec="http://www.thymeleaf.org/extras/spring-security">
 <head>
     <title>Product List</title>
     <link rel="stylesheet" type="text/css" th:href="@{/css/product.css}" />
@@ -26,8 +26,8 @@
                         <td>
                             <a class="action-link" th:href="@{'/products/' + ${product.id}}">View Details</a>
                             <a class="action-link" th:href="@{'/products/' + ${product.id}}">Add to Cart</a>
-                            <a class="action-link" th:if="${@userStatus.isAdmin()}" th:href="@{'/products/edit/' + ${product.id}}">Edit</a>
-                            <a class="action-link" th:if="${@userStatus.isAdmin()}" th:href="@{'/products/delete/' + ${product.id}}">Delete</a>
+                            <a class="action-link" sec:authorize="hasRole('ADMIN')" th:href="@{'/products/edit/' + ${product.id}}">Edit</a>
+                            <a class="action-link" sec:authorize="hasRole('ADMIN')" th:href="@{'/products/delete/' + ${product.id}}">Delete</a>
                         </td>
                     </tr>
                 </tbody>

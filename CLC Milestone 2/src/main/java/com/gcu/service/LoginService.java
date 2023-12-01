@@ -22,6 +22,9 @@ public class LoginService implements UserDetailsService {
 	
 	@Autowired
 	private UserDataService service;
+	
+	@Autowired
+	private UserStatus userStatus;
 
     @Override
 	public UserDetails loadUserByUsername(String username) throws UsernameNotFoundException
@@ -33,9 +36,9 @@ public class LoginService implements UserDetailsService {
 			System.out.println(new BCryptPasswordEncoder().encode(user.getPassword()));
 			List<GrantedAuthority>authorities = new ArrayList<GrantedAuthority>();
 			if(user.isAdmin())
-				authorities.add(new SimpleGrantedAuthority("USER"));
+				authorities.add(new SimpleGrantedAuthority("ROLE_ADMIN"));
 			else 
-				authorities.add(new SimpleGrantedAuthority("ADMIN"));
+				authorities.add(new SimpleGrantedAuthority("ROLE_USER"));
 			return new User(user.getUsername(), user.getPassword(), authorities);
 		}
 		else
