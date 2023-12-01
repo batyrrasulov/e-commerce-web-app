@@ -6,23 +6,21 @@
 	<div layout:fragment="content">
     <h1 class="center-text">Welcome to the Login Page</h1>
     <span th:text="${loginError}" class="fieldError" style="color:red"></span>
-    <form action="#" th:action="@{doLogin}" th:object="${loginModel}" method="post">
-    <table>
-		<tr>
-			<td>User Name:</td><td><input type="text" id="username" th:field="*{username}" ></td><td><h5 style="color:red" th:if="${#fields.hasErrors('username')}" th:errors="*{username}">User Name Error</h5></td>
-		</tr>
-		<tr>
-			<td>Password:</td><td><input type="password" id="password" th:field="*{password}" ></td><td><h5 style="color:red" th:if="${#fields.hasErrors('password')}" th:errors="*{password}">Password Error</h5></td>
-		</tr>
-		<tr>
-			<td colspan="3" style="text-align:center;"><input type="submit" value="Submit" /></td>
-		</tr>
-	</table>
-					
-	<div th:if="${#fields.hasErrors('*')}">List of Errors</div>
-	<div th:each="err : ${#fields.errors('*')}">
-	<span style="color:red" th:text="${err}" class="fieldError"></span>
-	</div>
+    <form action="#" th:action="@{/login}" th:object="${loginModel}" method="post">
+    	<div th:if="${param.error}" class="error">
+    		Invalid User Name or Password
+    	</div>
+	    <table>
+			<tr>
+				<td>User Name:</td><td><input type="text" id="username" th:field="*{username}" required></td>
+			</tr>
+			<tr>
+				<td>Password:</td><td><input type="password" id="password" th:field="*{password}" required></td>
+			</tr>
+			<tr>
+				<td colspan="2" style="text-align:center;"><input type="submit" value="Submit" /></td>
+			</tr>
+		</table>
 	</form>
 	
 	<p>Not a user? <a th:href="@{/register}">Register here</a></p>

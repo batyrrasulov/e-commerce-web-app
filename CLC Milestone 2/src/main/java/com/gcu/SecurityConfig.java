@@ -22,7 +22,7 @@ public class SecurityConfig
 		http
 			.csrf(csrf -> csrf.disable())
 			.authorizeHttpRequests(auth -> auth
-					.requestMatchers(new AntPathRequestMatcher("/"), new AntPathRequestMatcher("/login"), new AntPathRequestMatcher("/password"), new AntPathRequestMatcher("/css/**"), new AntPathRequestMatcher("/images/**")).permitAll()
+					.requestMatchers(new AntPathRequestMatcher("/"), new AntPathRequestMatcher("/login"), new AntPathRequestMatcher("/register"),new AntPathRequestMatcher("/doRegister"), new AntPathRequestMatcher("/css/**"), new AntPathRequestMatcher("/images/**")).permitAll()
 					.anyRequest().authenticated())
 			.formLogin(form -> form
 					.loginPage("/login")

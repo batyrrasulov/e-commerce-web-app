@@ -11,6 +11,7 @@ import com.gcu.data.entity.UserEntity;
 import com.gcu.model.UserModel;
 import com.gcu.service.RegistrationService;
 import jakarta.validation.Valid;
+import org.springframework.security.crypto.bcrypt.BCryptPasswordEncoder;
 
 @Controller
 public class RegistrationController {
@@ -41,7 +42,7 @@ public class RegistrationController {
         userEntity.setEmail(userModel.getEmail());
         userEntity.setPhoneNumber(userModel.getPhoneNumber());
         userEntity.setUsername(userModel.getUsername());
-        userEntity.setPassword(userModel.getPassword());
+        userEntity.setPassword(new BCryptPasswordEncoder().encode(userModel.getPassword()));
 
         // call the RegistrationService to register the user with the converted UserEntity
         registrationService.registerUser(userEntity);
