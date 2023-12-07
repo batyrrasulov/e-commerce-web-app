@@ -24,7 +24,7 @@ public class SecurityConfig
 			.csrf(csrf -> csrf.disable())
 			.authorizeHttpRequests(auth -> auth
 					.requestMatchers(new AntPathRequestMatcher("/"), new AntPathRequestMatcher("/login"), new AntPathRequestMatcher("/register"),new AntPathRequestMatcher("/doRegister"), new AntPathRequestMatcher("/css/**"), new AntPathRequestMatcher("/images/**")).permitAll()
-					.requestMatchers(new AntPathRequestMatcher("/products/edit/**"), new AntPathRequestMatcher("/products/delete/**"), new AntPathRequestMatcher("/products/creation/**")).hasRole("ADMIN")
+					.requestMatchers(new AntPathRequestMatcher("/products/edit/**"), new AntPathRequestMatcher("/products/delete/**"), new AntPathRequestMatcher("/products/creation/**"), new AntPathRequestMatcher("/service/**")).hasRole("ADMIN")
 					.anyRequest().authenticated())
 			.formLogin(form -> form
 					.loginPage("/login")
