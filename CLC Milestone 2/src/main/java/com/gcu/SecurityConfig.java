@@ -2,6 +2,7 @@ package com.gcu;
 
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.context.annotation.*;
+import org.springframework.security.config.Customizer;
 import org.springframework.security.config.annotation.authentication.builders.AuthenticationManagerBuilder;
 import org.springframework.security.config.annotation.web.builders.HttpSecurity;
 import org.springframework.security.crypto.bcrypt.BCryptPasswordEncoder;
@@ -36,7 +37,8 @@ public class SecurityConfig
 					.invalidateHttpSession(true)
 					.clearAuthentication(true)
 					.permitAll()
-					.logoutSuccessUrl("/"));
+					.logoutSuccessUrl("/"))
+			.httpBasic(Customizer.withDefaults());
 		
 		return http.build();
 	}
