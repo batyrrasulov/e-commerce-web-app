@@ -25,7 +25,10 @@
                         <td th:text="${product.price}">Product Price</td>
                         <td>
                             <a class="action-link" th:href="@{'/products/' + ${product.id}}">View Details</a>
-                            <a class="action-link" th:href="@{'/products/' + ${product.id}}">Add to Cart</a>
+<form th:action="@{/shopping-cart/add-to-cart}" method="post">
+    <input type="hidden" name="productId" th:value="${product.id}" />
+    <button type="submit" class="action-link no-border">Add to Cart</button>
+</form>
                             <a class="action-link" sec:authorize="hasRole('ADMIN')" th:href="@{'/products/edit/' + ${product.id}}">Edit</a>
                             <a class="action-link" sec:authorize="hasRole('ADMIN')" th:href="@{'/products/delete/' + ${product.id}}">Delete</a>
                         </td>

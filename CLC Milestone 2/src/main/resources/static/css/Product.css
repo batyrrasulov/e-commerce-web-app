@@ -1,4 +1,3 @@
-/* product.css */
 :root {
 	--primaryColor: #602060;
 	--secondaryColor: white;
@@ -51,4 +50,25 @@ body {
     color: #902080;
 }
 
-/* Add more styles based on your preferences */
+.details-container {
+    overflow-x: auto;
+}
+
+@media (max-width: 768px) {
+    .table-theme th, .table-theme td {
+        padding: 8px;
+        border: 1px solid var(--borderColor);
+        text-align: center; 
+    }
+
+    .action-link {
+        padding: 3px;
+    }
+    
+    .container {
+        width: 90%; 
+        overflow-x: auto;
+    }
+}
+
+}

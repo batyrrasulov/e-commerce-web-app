@@ -127,6 +127,17 @@ input[type="submit"]:hover {
 		
 	} 
 }
+.no-border {
+    border: none;
+    background: none;
+    padding: 0;
+    cursor: pointer;
+    text-decoration: underline; 
+}
+
+.no-border:hover {
+    color: #902080; 
+}
 
 @media (max-width: 599px){
 	.column{
@@ -141,4 +152,13 @@ input[type="submit"]:hover {
 		overflow:hidden;
 		
 	} 	
+@media (max-width: 768px) {
+    body {
+        font-size: 14px; 
+    }
+    
+    h1 {
+        font-size: 24px; 
+    }
+ }	
 }

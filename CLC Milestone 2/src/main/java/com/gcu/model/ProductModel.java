@@ -90,6 +90,9 @@ public class ProductModel {
 	public void setCategory(String category) {
 		this.category = category;
 	}
+	public long getProductID() {
+		return 0;
+	}
 	
 	
 }
