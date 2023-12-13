@@ -22,7 +22,7 @@
                     <tr th:each="product : ${cartItems}">
                         <td th:text="${product.productID}">Product ID</td>
                         <td th:text="${product.name}">Product Name</td>
-                        <td th:text="${product.price}">Product Price</td>
+                        <td th:text="${#numbers.formatDecimal(product.price, 0, 'COMMA', 2, 'POINT')}">Product Price</td>
                         <td>
     <a class="action-link" th:href="@{'/products/' + ${product.productID}}">View Details</a>
     <form th:action="@{/shopping-cart/remove-from-cart}" method="post">

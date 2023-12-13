@@ -18,7 +18,7 @@
         	    	<span th:if="${#fields.hasErrors('quantity')}" th:errors="*{quantity}" class="error"></span>
 
 	            	<label for="price">Price:</label>
-   		    	    <input type="text" id="price" th:field="*{price}">
+   		    	    <input type="text" id="price" th:field="*{price}" placeholder="0.00">
     		        <span th:if="${#fields.hasErrors('price')}" th:errors="*{price}" class="error"></span>
 
 	        	    <label for="description">Description:</label>

@@ -1,5 +1,5 @@
 Manifest-Version: 1.0
-Build-Jdk-Spec: 17
+Build-Jdk-Spec: 21
 Implementation-Title: Milestone
 Implementation-Version: 0.0.4
 Created-By: Maven Integration for Eclipse
