@@ -127,4 +127,5 @@ The **About Us** page gives users more information about the website and the tea
 
 ### Product List Page
 The **Product List** page displays the available products along with their details.
+
 <img width="720" alt="image" src="https://github.com/user-attachments/assets/9b1df69d-344e-48fc-80b1-827eb97199dd" />
